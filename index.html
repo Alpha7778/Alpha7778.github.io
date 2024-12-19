@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha8研发</title>
-    <link rel="icon" href="微信图片_20241219090247.jpg" type="image/jpeg">
+    <link rel="icon" href="/avatar.jpg" type="image/jpeg">
     <style>
         * {
             margin: 0;
@@ -12,7 +12,6 @@
             box-sizing: border-box;
             font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-
         :root {
             --primary: #00ffff;
             --secondary: #8A2BE2;
@@ -20,7 +19,6 @@
             --card-bg: rgba(255, 255, 255, 0.03);
             --text: #ffffff;
         }
-
         body {
             background: var(--background);
             min-height: 100vh;
@@ -32,7 +30,6 @@
             position: relative;
             overflow-x: hidden;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -46,7 +43,6 @@
             background-size: 50px 50px;
             z-index: -1;
         }
-
         #particles-js {
             position: fixed;
             top: 0;
@@ -55,7 +51,6 @@
             height: 100%;
             z-index: 0;
         }
-
         .container {
             max-width: 1000px;
             width: 100%;
@@ -63,26 +58,22 @@
             position: relative;
             z-index: 1;
         }
-
         .header {
             text-align: center;
             margin-bottom: 80px;
             opacity: 1;
             animation: glowPulse 2s infinite alternate;
         }
-
         @keyframes glowPulse {
             from { filter: drop-shadow(0 0 5px var(--primary)); }
             to { filter: drop-shadow(0 0 15px var(--primary)); }
         }
-
         .logo-container {
             position: relative;
             width: 120px;
             height: 120px;
             margin: 0 auto 25px;
         }
-
         .logo {
             width: 100%;
             height: 100%;
@@ -91,7 +82,6 @@
             padding: 3px;
             animation: pulse 2s infinite;
         }
-
         .logo::before {
             content: '';
             position: absolute;
@@ -105,20 +95,17 @@
             filter: blur(10px);
             opacity: 0.5;
         }
-
         .logo img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
         }
-
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4); }
             70% { box-shadow: 0 0 0 20px rgba(0, 255, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0); }
         }
-
         .title {
             font-size: 42px;
             font-weight: 700;
@@ -129,19 +116,16 @@
             letter-spacing: 1px;
             position: relative;
         }
-
         .subtitle {
             color: rgba(255, 255, 255, 0.7);
             font-size: 18px;
         }
-
         .wechat-icon {
             width: 24px;
             height: 24px;
             transition: all 0.3s ease;
             filter: brightness(0) invert(1);
         }
-
         .contact-bar {
             margin-top: 30px;
             padding: 12px 30px;
@@ -155,7 +139,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .contact-bar::before {
             content: '';
             position: absolute;
@@ -167,23 +150,19 @@
             transform: rotate(45deg);
             animation: shine 3s infinite;
         }
-
         @keyframes shine {
             0% { transform: translateX(-100%) rotate(45deg); }
             100% { transform: translateX(100%) rotate(45deg); }
         }
-
         .contact-bar:hover {
             background: rgba(0, 255, 255, 0.05);
             border-color: var(--primary);
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(0, 255, 255, 0.1);
         }
-
         .contact-bar:hover .wechat-icon {
             transform: scale(1.1);
         }
-
         .contact-bar .contact-item {
             display: flex;
             align-items: center;
@@ -192,14 +171,12 @@
             font-size: 16px;
             font-weight: 500;
         }
-
         .services-container {
             display: flex;
             flex-direction: column;
             gap: 25px;
             margin-bottom: 50px;
         }
-
         .service-card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -214,7 +191,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .service-card::before {
             content: '';
             position: absolute;
@@ -226,17 +202,14 @@
             transform: translateX(-100%);
             transition: transform 0.6s;
         }
-
         .service-card:hover::before {
             transform: translateX(100%);
         }
-
         .service-card:hover {
             transform: scale(1.02);
             border-color: var(--primary);
             box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
         }
-
         .service-icon {
             font-size: 32px;
             min-width: 60px;
@@ -248,11 +221,9 @@
             border-radius: 12px;
             position: relative;
         }
-
         .service-content {
             flex: 1;
         }
-
         .service-title {
             font-size: 24px;
             font-weight: 600;
@@ -260,20 +231,17 @@
             margin-bottom: 10px;
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
         }
-
         .service-description {
             color: rgba(255, 255, 255, 0.7);
             font-size: 16px;
             margin-bottom: 15px;
         }
-
         .service-features {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             list-style: none;
         }
-
         .service-features li {
             background: rgba(255, 255, 255, 0.05);
             padding: 5px 12px;
@@ -282,13 +250,11 @@
             color: rgba(255, 255, 255, 0.6);
             transition: all 0.3s ease;
         }
-
         .service-features li:hover {
             background: rgba(0, 255, 255, 0.1);
             color: var(--primary);
             transform: translateY(-2px);
         }
-
         @media (max-width: 768px) {
             .title { 
                 font-size: 32px; 
@@ -313,14 +279,14 @@
         <header class="header">
             <div class="logo-container">
                 <div class="logo">
-                    <img src="微信图片_20241219090247.jpg" alt="Logo">
+                    <img src="/avatar.jpg" alt="Logo">
                 </div>
             </div>
             <h1 class="title">Alpha8研发</h1>
             <p class="subtitle"></p>
             <div class="contact-bar">
                 <div class="contact-item">
-                    <img src="wxlogo.png" alt="WeChat" class="wechat-icon">
+                    <img src="/wxlogo.png" alt="WeChat" class="wechat-icon">
                     <span>联系微信: Alpha7778</span>
                 </div>
             </div>
