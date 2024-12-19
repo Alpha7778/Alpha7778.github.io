@@ -18,7 +18,6 @@
             --background: #0a0a0a;
             --card-bg: rgba(255, 255, 255, 0.03);
             --text: #ffffff;
-            --neon-color: #ff00ff;
         }
         body {
             background: var(--background);
@@ -31,7 +30,6 @@
             position: relative;
             overflow-x: hidden;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -44,41 +42,7 @@
                 linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -1;
-            animation: gradientBG 15s ease infinite;
         }
-
-        @keyframes gradientBG {
-            0% {
-                background-color: rgba(10,10,10,1);
-            }
-            25% {
-                background-color: rgba(20,0,30,1);
-            }
-            50% {
-                background-color: rgba(0,20,30,1);
-            }
-            75% {
-                background-color: rgba(30,0,20,1);
-            }
-            100% {
-                background-color: rgba(10,10,10,1);
-            }
-        }
-
-        .cursor-follower {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            pointer-events: none;
-            mix-blend-mode: screen;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 20px var(--primary);
-        }
-
         #particles-js {
             position: fixed;
             top: 0;
@@ -87,7 +51,6 @@
             height: 100%;
             z-index: 0;
         }
-
         .container {
             max-width: 1000px;
             width: 100%;
@@ -95,83 +58,30 @@
             position: relative;
             z-index: 1;
         }
-
         .header {
             text-align: center;
             margin-bottom: 80px;
             opacity: 1;
             animation: glowPulse 2s infinite alternate;
-            position: relative;
         }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 2px;
-            background: var(--neon-color);
-            box-shadow: 
-                0 0 10px var(--neon-color),
-                0 0 20px var(--neon-color),
-                0 0 30px var(--neon-color),
-                0 0 40px var(--neon-color);
-            animation: neonPulse 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes neonPulse {
-            from { 
-                opacity: 0.5;
-                width: 150px;
-            }
-            to { 
-                opacity: 1;
-                width: 250px;
-            }
-        }
-
         @keyframes glowPulse {
-            from { 
-                filter: drop-shadow(0 0 5px var(--primary)) brightness(1); 
-            }
-            to { 
-                filter: drop-shadow(0 0 15px var(--primary)) brightness(1.2); 
-            }
+            from { filter: drop-shadow(0 0 5px var(--primary)); }
+            to { filter: drop-shadow(0 0 15px var(--primary)); }
         }
-
         .logo-container {
             position: relative;
             width: 120px;
             height: 120px;
             margin: 0 auto 25px;
-            transform-style: preserve-3d;
-            animation: float 6s ease-in-out infinite;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(5deg); }
-            50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(10px) rotate(-5deg); }
-        }
-
         .logo {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             padding: 3px;
-            animation: pulse 2s infinite, rotateLogo 20s linear infinite;
-            position: relative;
+            animation: pulse 2s infinite;
         }
-
-        @keyframes rotateLogo {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
         .logo::before {
             content: '';
             position: absolute;
@@ -184,43 +94,18 @@
             z-index: -1;
             filter: blur(10px);
             opacity: 0.5;
-            animation: glowRotate 3s linear infinite;
         }
-
-        @keyframes glowRotate {
-            0% { transform: rotate(0deg); filter: blur(10px) brightness(1); }
-            50% { transform: rotate(180deg); filter: blur(15px) brightness(1.5); }
-            100% { transform: rotate(360deg); filter: blur(10px) brightness(1); }
-        }
-
         .logo img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            animation: imageFloat 3s ease-in-out infinite;
         }
-
-        @keyframes imageFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
         @keyframes pulse {
-            0% { 
-                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4),
-                           0 0 0 0 rgba(138, 43, 226, 0.4); 
-            }
-            50% { 
-                box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0),
-                           0 0 30px 15px rgba(138, 43, 226, 0); 
-            }
-            100% { 
-                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0),
-                           0 0 0 0 rgba(138, 43, 226, 0); 
-            }
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0); }
         }
-
         .title {
             font-size: 42px;
             font-weight: 700;
@@ -230,38 +115,17 @@
             margin-bottom: 15px;
             letter-spacing: 1px;
             position: relative;
-            animation: titleGlow 2s ease-in-out infinite alternate;
         }
-
-        @keyframes titleGlow {
-            from { text-shadow: 0 0 10px var(--primary); }
-            to { text-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary); }
-        }
-
         .subtitle {
             color: rgba(255, 255, 255, 0.7);
             font-size: 18px;
-            animation: subtitlePulse 3s infinite;
         }
-
-        @keyframes subtitlePulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
         .wechat-icon {
             width: 24px;
             height: 24px;
             transition: all 0.3s ease;
             object-fit: contain;
-            animation: iconFloat 2s ease-in-out infinite;
         }
-
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-
         .contact-bar {
             margin-top: 30px;
             padding: 12px 30px;
@@ -274,14 +138,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            animation: contactBarGlow 3s infinite alternate;
         }
-
-        @keyframes contactBarGlow {
-            from { box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); }
-            to { box-shadow: 0 0 20px rgba(0, 255, 255, 0.4); }
-        }
-
         .contact-bar::before {
             content: '';
             position: absolute;
@@ -293,25 +150,19 @@
             transform: rotate(45deg);
             animation: shine 3s infinite;
         }
-
         @keyframes shine {
             0% { transform: translateX(-100%) rotate(45deg); }
             100% { transform: translateX(100%) rotate(45deg); }
         }
-
         .contact-bar:hover {
             background: rgba(0, 255, 255, 0.05);
             border-color: var(--primary);
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 
-                0 5px 20px rgba(0, 255, 255, 0.1),
-                0 0 30px rgba(0, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.1);
         }
-
         .contact-bar:hover .wechat-icon {
-            transform: scale(1.1) rotate(10deg);
+            transform: scale(1.1);
         }
-
         .contact-bar .contact-item {
             display: flex;
             align-items: center;
@@ -319,17 +170,13 @@
             color: rgba(255, 255, 255, 0.9);
             font-size: 16px;
             font-weight: 500;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
-
         .services-container {
             display: flex;
             flex-direction: column;
             gap: 25px;
             margin-bottom: 50px;
-            perspective: 1000px;
         }
-
         .service-card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -343,15 +190,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            transform-style: preserve-3d;
-            animation: cardFloat 4s ease-in-out infinite;
         }
-
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0) rotateX(0deg); }
-            50% { transform: translateY(-10px) rotateX(2deg); }
-        }
-
         .service-card::before {
             content: '';
             position: absolute;
@@ -363,19 +202,14 @@
             transform: translateX(-100%);
             transition: transform 0.6s;
         }
-
         .service-card:hover::before {
             transform: translateX(100%);
         }
-
         .service-card:hover {
-            transform: scale(1.02) translateZ(20px);
+            transform: scale(1.02);
             border-color: var(--primary);
-            box-shadow: 
-                0 0 30px rgba(0, 255, 255, 0.1),
-                0 0 60px rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
         }
-
         .service-icon {
             font-size: 32px;
             min-width: 60px;
@@ -386,52 +220,28 @@
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             border-radius: 12px;
             position: relative;
-            animation: iconPulse 2s infinite;
         }
-
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
         .service-content {
             flex: 1;
-            transform-style: preserve-3d;
         }
-
         .service-title {
             font-size: 24px;
             font-weight: 600;
             color: var(--text);
             margin-bottom: 10px;
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            animation: titleFloat 3s ease-in-out infinite;
         }
-
-        @keyframes titleFloat {
-            0%, 100% { transform: translateZ(0); }
-            50% { transform: translateZ(10px); }
-        }
-
         .service-description {
             color: rgba(255, 255, 255, 0.7);
             font-size: 16px;
             margin-bottom: 15px;
-            animation: descriptionPulse 4s infinite;
         }
-
-        @keyframes descriptionPulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
         .service-features {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             list-style: none;
         }
-
         .service-features li {
             background: rgba(255, 255, 255, 0.05);
             padding: 5px 12px;
@@ -439,21 +249,12 @@
             font-size: 14px;
             color: rgba(255, 255, 255, 0.6);
             transition: all 0.3s ease;
-            animation: featureFloat 3s infinite;
         }
-
-        @keyframes featureFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-
         .service-features li:hover {
             background: rgba(0, 255, 255, 0.1);
             color: var(--primary);
-            transform: translateY(-2px) scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
-
         @media (max-width: 768px) {
             .title { 
                 font-size: 32px; 
@@ -473,7 +274,6 @@
     </style>
 </head>
 <body>
-    <div class="cursor-follower"></div>
     <div id="particles-js"></div>
     <div class="container">
         <header class="header">
@@ -569,54 +369,13 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // 鼠标跟随效果
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('.cursor-follower');
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // 3D卡片效果
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 20;
-                const rotateY = -(x - centerX) / 20;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        });
-
-        // 粒子效果
         particlesJS('particles-js', {
             particles: {
                 number: { value: 100, density: { enable: true, value_area: 800 } },
                 color: { value: "#00ffff" },
-                shape: {
-                    type: "circle",
-                    stroke: { width: 0, color: "#000000" },
-                    polygon: { nb_sides: 5 }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
-                },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
                 line_linked: {
                     enable: true,
                     distance: 150,
@@ -631,8 +390,7 @@
                     random: true,
                     straight: false,
                     out_mode: "out",
-                    bounce: false,
-                    attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                    bounce: false
                 }
             },
             interactivity: {
@@ -644,8 +402,7 @@
                 },
                 modes: {
                     grab: { distance: 140, line_linked: { opacity: 0.5 } },
-                    push: { particles_nb: 4 },
-                    remove: { particles_nb: 2 }
+                    push: { particles_nb: 4 }
                 }
             },
             retina_detect: true
