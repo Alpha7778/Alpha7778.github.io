@@ -32,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* 动态背景渐变 */
         body::before {
             content: '';
             position: fixed;
@@ -66,7 +65,6 @@
             }
         }
 
-        /* 鼠标跟随效果 */
         .cursor-follower {
             position: fixed;
             width: 20px;
@@ -79,24 +77,6 @@
             transition: transform 0.1s ease;
             transform: translate(-50%, -50%);
             box-shadow: 0 0 20px var(--primary);
-        }
-
-        /* 光束扫描效果 */
-        .light-beam {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: lightBeam 8s linear infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes lightBeam {
-            0% { transform: translateX(-50%) rotate(45deg); }
-            100% { transform: translateX(50%) rotate(45deg); }
         }
 
         #particles-js {
@@ -124,7 +104,6 @@
             position: relative;
         }
 
-        /* 霓虹灯效果 */
         .header::after {
             content: '';
             position: absolute;
@@ -495,9 +474,98 @@
 </head>
 <body>
     <div class="cursor-follower"></div>
-    <div class="light-beam"></div>
     <div id="particles-js"></div>
-    <!-- 其余HTML保持不变 -->
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="/avatar.jpg" alt="Logo">
+                </div>
+            </div>
+            <h1 class="title">Alpha8研发</h1>
+            <p class="subtitle"></p>
+            <div class="contact-bar">
+                <div class="contact-item">
+                    <img src="/wxlogo.png" alt="WeChat" class="wechat-icon">
+                    <span>联系微信: Alpha7778</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <div class="service-content">
+                    <h2 class="service-title">小程序开发</h2>
+                    <p class="service-description">一站式小程序开发服务，快速构建您的移动端产品</p>
+                    <ul class="service-features">
+                        <li>微信小程序</li>
+                        <li>支付宝小程序</li>
+                        <li>抖音小程序</li>
+                        <li>跨平台小程序</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <div class="service-content">
+                    <h2 class="service-title">脚本工具定制</h2>
+                    <p class="service-description">专业定制各类自动化脚本和辅助工具</p>
+                    <ul class="service-features">
+                        <li>数据采集脚本</li>
+                        <li>自动化处理</li>
+                        <li>办公辅助工具</li>
+                        <li>流程自动化</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <div class="service-content">
+                    <h2 class="service-title">软件定制优化</h2>
+                    <p class="service-description">软件功能定制与性能优化服务</p>
+                    <ul class="service-features">
+                        <li>软件功能定制</li>
+                        <li>性能提升优化</li>
+                        <li>逆向分析适配</li>
+                        <li>兼容性解决</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <div class="service-content">
+                    <h2 class="service-title">网站建设运维</h2>
+                    <p class="service-description">一站式网站解决方案，从建设到运维</p>
+                    <ul class="service-features">
+                        <li>企业官网开发</li>
+                        <li>电商网站建设</li>
+                        <li>服务器维护</li>
+                        <li>网站优化升级</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <div class="service-content">
+                    <h2 class="service-title">机器人开发</h2>
+                    <p class="service-description">专业定制各类社交平台机器人</p>
+                    <ul class="service-features">
+                        <li>钉钉机器人</li>
+                        <li>微信机器人</li>
+                        <li>自动化回复</li>
+                        <li>智能客服</li>
+                        <li>群管理机器人</li>
+                        <li>数据统计机器人</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
@@ -529,7 +597,7 @@
             });
         });
 
-        // 增强的粒子效果
+        // 粒子效果
         particlesJS('particles-js', {
             particles: {
                 number: { value: 100, density: { enable: true, value_area: 800 } },
